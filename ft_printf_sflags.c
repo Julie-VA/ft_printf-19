@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:15:43 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/06 16:21:12 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/06 17:12:40 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	sapplyflags(va_list ap, t_flags *flags, int *count, int *i)
 	{
 		if (flags->mfw > 0 && flags->minus == 0)
 			smfw(len, count, flags);
-		if (flags->notwrite == 0 && written == 0)
+		if (flags->prcsn > 0 && flags->notwrite == 0 && written == 0)
 		{
 			written = sprcsn(len, flags, count);
 			*i += 1;
@@ -103,14 +103,19 @@ static int	setprecision(const char *str, int *i, t_flags *flags)
 	prcsn = 0;
 	check = 0;
 	*i += 1;
-	while (str[*i] >= '0' && str[*i] <= '9')
-	{
-		prcsn = (prcsn * 10) + (str[*i] - '0');
-		*i += 1;
-		check++;
-	}
-	if (check > 0 && prcsn == 0)
+	if (islegal(str, *i) == 3)
 		flags->notwrite = 1;
+	else
+	{
+		while (str[*i] >= '0' && str[*i] <= '9')
+		{
+			prcsn = (prcsn * 10) + (str[*i] - '0');
+			*i += 1;
+			check++;
+		}
+		if (check > 0 && prcsn == 0)
+			flags->notwrite = 1;
+	}
 	*i -= 1;
 	return (prcsn);
 }
