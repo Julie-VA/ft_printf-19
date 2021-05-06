@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:15:43 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/06 15:51:12 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/06 16:21:12 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	sprcsn(int len, t_flags *flags, int *count)
 		written = 1;
 	}
 	if (i < len)
-		*count += i;
+		*count -= len - i;
 	return (written);
 }
 
@@ -110,8 +110,6 @@ static int	setprecision(const char *str, int *i, t_flags *flags)
 		check++;
 	}
 	if (check > 0 && prcsn == 0)
-		flags->notwrite = 1;
-	if (islegal(str, *i) >= 2 || str[*i] != '*')
 		flags->notwrite = 1;
 	*i -= 1;
 	return (prcsn);
