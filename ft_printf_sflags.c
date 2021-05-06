@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:15:43 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/06 18:14:45 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/06 18:22:39 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	smfw(int len, int *count, t_flags *flags)
 	int	i;
 
 	i = len;
-	if (flags->prcsn < len)
+	if (flags->period && flags->prcsn < len)
 		i -= len - flags->prcsn;
 	while (i < flags->mfw)
 	{
@@ -58,8 +58,6 @@ static int	sprcsn(int len, t_flags *flags, int *count)
 		i++;
 		written = 1;
 	}
-	// if (i < len && flags->mfw > len)
-	// 	*count += i - 1;
 	if (i < len)
 		*count -= len - i;
 	return (written);
