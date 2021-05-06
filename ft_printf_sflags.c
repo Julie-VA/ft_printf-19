@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:15:43 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/06 17:58:37 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/06 18:14:45 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,14 @@ int	sapplyflags(va_list ap, t_flags *flags, int *count, int *i)
 	if (flags->minus == 1)
 	{
 		if (flags->prcsn > 0)
+		{
 			sprcsn(len, flags, count);
+			written = 1;
+		}
 		*i += 1;
+		if (written == 0)
+			ft_putstr(flags->vals);
 		written = 1;
-		ft_putstr(flags->vals);
 		smfw(len, count, flags);
 	}
 	if (flags->prcsn >= 0 || flags->mfw > 0)
