@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	countint(va_list ap, int *count, t_flags *flags)
 {
@@ -69,8 +70,18 @@ int	scount(char *s, int *count, t_flags *flags)
 	i = 0;
 	if (!s)
 	{
-		flags->notwrite = 1;
-		return (0);
+		if (flags->mfw > 0 && flags->prcsn == 0)
+		{
+			flags->vals = "";
+			return (0);
+		}
+		else
+		{
+			flags->vals = "(null)";
+			*count += 6;
+			flags->notwrite = 0;
+			return (0);
+		}
 	}
 	while (s[i])
 		i++;
