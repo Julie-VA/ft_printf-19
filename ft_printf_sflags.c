@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:15:43 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/07 10:12:27 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/07 10:30:58 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,18 @@ static void	smfw(int len, int *count, t_flags *flags)
 		i -= len - flags->prcsn;
 	while (i < flags->mfw)
 	{
-		write(1, " ", 1);
-		i++;
-		*count += 1;
+		if (flags->zero == 1 && flags->minus == 0)
+		{
+			write(1, "0", 1);
+			i++;
+			*count += 1;
+		}
+		else
+		{
+			write(1, " ", 1);
+			i++;
+			*count += 1;
+		}
 	}
 }
 
@@ -153,6 +162,8 @@ t_flags	*set_sflags(const char *str, int *i, va_list ap, int *tormv)
 			flags->minus = 1;
 		else if (str[*i] >= '0' && str[*i] <= '9')
 		{
+			if (str[*i] == '0' && flags->zero == 0)
+				flags->zero = 1;
 			flags->mfw = setmfw(str, i);
 			*i -= 1;
 		}
