@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/07 10:12:37 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/07 15:07:57 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		ft_printf(const char *, ...);
 t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv);
 void	resetflags(t_flags *flags);
 t_flags	*set_sflags(const char *str, int *i, va_list ap, int *tormv);
-int		sapplyflags(va_list ap, t_flags *flags, int *count, int *i);
+int		sapplyflags(va_list ap, t_flags *flags, int *count);
 
 //legal
 int		checklegal(const char *str, t_flags *flags, int i);

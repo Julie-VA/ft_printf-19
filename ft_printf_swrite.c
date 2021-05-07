@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:55:09 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/07 14:51:42 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/07 15:10:00 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,12 @@ int	swritestr(const char *str, va_list ap)
 			prcnts++;
 			flags = set_sflags(str, &i, ap, &tormv);
 			// printflags(flags);
-			if (sapplyflags(ap, flags, &count, &i) == 0 && flags->notwrite == 0)
-			{
+			if (sapplyflags(ap, flags, &count) == 0 && flags->notwrite == 0)
 				ft_putstr(flags->vals);
+			i--;
+			while (str[i] != flags->ident)
 				i++;
-			}
+			i++;
 			free(flags);
 		}
 		else
@@ -101,5 +102,9 @@ int	swritestr(const char *str, va_list ap)
 			i++;
 		}
 	}
+	// printf("i=%d\n", i);
+	// printf("count=%d\n", count);
+	// printf("prcnts=%d\n", prcnts);
+	// printf("tormv=%d\n", tormv);
 	return (i + count - (prcnts * 2) - tormv);
 }

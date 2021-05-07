@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:15:43 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/07 12:07:58 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/07 15:09:13 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int	sprcsn(int len, t_flags *flags, int *count)
 	return (written);
 }
 
-int	sapplyflags(va_list ap, t_flags *flags, int *count, int *i)
+int	sapplyflags(va_list ap, t_flags *flags, int *count)
 {
 	int	written;
 	int	len;
@@ -80,10 +80,7 @@ int	sapplyflags(va_list ap, t_flags *flags, int *count, int *i)
 	written = 0;
 	len = getlen(ap, flags, count);
 	if (flags->prcsn <= 0 && flags->notwrite == 1)
-	{
 		flags->minus = 0;
-		*i += 1;
-	}
 	if (flags->minus == 1)
 	{
 		if (flags->prcsn > 0)
@@ -91,7 +88,6 @@ int	sapplyflags(va_list ap, t_flags *flags, int *count, int *i)
 			sprcsn(len, flags, count);
 			written = 1;
 		}
-		*i += 1;
 		if (written == 0)
 			ft_putstr(flags->vals);
 		written = 1;
@@ -102,10 +98,7 @@ int	sapplyflags(va_list ap, t_flags *flags, int *count, int *i)
 		if (flags->mfw > 0 && flags->minus == 0)
 			smfw(len, count, flags);
 		if (flags->prcsn > 0 && flags->notwrite == 0 && written == 0)
-		{
 			written = sprcsn(len, flags, count);
-			*i += 1;
-		}
 	}
 	return (written);
 }
