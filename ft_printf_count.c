@@ -67,6 +67,11 @@ int	scount(char *s, int *count, t_flags *flags)
 	int	i;
 
 	i = 0;
+	if (!s)
+	{
+		flags->notwrite = 1;
+		return (0);
+	}
 	while (s[i])
 		i++;
 	if (flags->notwrite == 0)

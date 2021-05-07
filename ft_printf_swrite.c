@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:55:09 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/06 16:49:22 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/07 10:15:42 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,24 +49,24 @@ int	getlen(va_list ap, t_flags *flags, int *count)
 // 	ft_putstr(flags->vals);
 // }
 
-static void	printflags(t_flags *flags)
-{
-	printf("\n");
-	printf("minus : %d\n", flags->minus);
-	printf("zero : %d\n", flags->zero);
-	printf("period : %d\n", flags->period);
-	printf("mfw : %d\n", flags->mfw);
-	printf("prcsn : %d\n", flags->prcsn);
-	printf("ident : %c\n", flags->ident);
-	printf("valdi : %d\n", flags->valdi);
-	printf("valuxX : %d\n", flags->valuxX);
-	printf("valp : %llu\n", flags->valp);
-	printf("vals : %s\n", flags->vals);
-	printf("resultxX : %s\n", flags->resultxX);
-	printf("resultp : %s\n", flags->resultp);
-	printf("notwrite : %d\n", flags->notwrite);
-	printf("\n");
-}
+// static void	printflags(t_flags *flags)
+// {
+// 	printf("\n");
+// 	printf("minus : %d\n", flags->minus);
+// 	printf("zero : %d\n", flags->zero);
+// 	printf("period : %d\n", flags->period);
+// 	printf("mfw : %d\n", flags->mfw);
+// 	printf("prcsn : %d\n", flags->prcsn);
+// 	printf("ident : %c\n", flags->ident);
+// 	printf("valdi : %d\n", flags->valdi);
+// 	printf("valuxX : %d\n", flags->valuxX);
+// 	printf("valp : %llu\n", flags->valp);
+// 	printf("vals : %s\n", flags->vals);
+// 	printf("resultxX : %s\n", flags->resultxX);
+// 	printf("resultp : %s\n", flags->resultp);
+// 	printf("notwrite : %d\n", flags->notwrite);
+// 	printf("\n");
+// }
 
 int	swritestr(const char *str, va_list ap)
 {
@@ -89,8 +89,9 @@ int	swritestr(const char *str, va_list ap)
 			flags = set_sflags(str, &i, ap, &tormv);
 			if (sapplyflags(ap, flags, &count, &i) == 0 && flags->notwrite == 0)
 			{
-				printflags(flags);
+				// printflags(flags);
 				ft_putstr(flags->vals);
+				i++;
 			}
 			free(flags);
 		}
