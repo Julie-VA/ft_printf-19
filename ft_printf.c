@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 10:52:08 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/05 09:56:42 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/07 14:51:17 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int	ft_printf(const char *str, ...)
 		return (0);
 	va_start(ap, str);
 	i = swritestr(str, ap);
-	if (!i)
-		return (-1);
 	va_end(ap);
 	return (i);
 }
