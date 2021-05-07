@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:15:43 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/07 10:30:58 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/07 10:42:12 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ static int	setprecision(const char *str, int *i, t_flags *flags)
 	prcsn = 0;
 	check = 0;
 	*i += 1;
-	if (islegal(str, *i) == 3)
+	if (islegal(str, *i) == 3 || str[*i] == '-')
 		flags->notwrite = 1;
 	else
 	{

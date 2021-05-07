@@ -200,13 +200,13 @@ int main(void)
   total += print_result(x, y); index++;
   //35
   printf("--- test %d ---\n", index);
-  x = printf("system    ->|%-05s|\n", "pd");
-  y = ft_printf("yours     ->|%-05s|\n", "pd");
+  x = printf("system    ->|%-05s|\n", "ok");
+  y = ft_printf("yours     ->|%-05s|\n", "ok");
   total += print_result(x, y); index++;
   //36
   printf("--- test %d ---\n", index);
-  x = printf("system    ->|%-0-0-0-0-0-0-0-0-0-0s|\n", "pd");
-  y = ft_printf("yours     ->|%-0-0-0-0-0-0-0-0-0-0s|\n", "pd");
+  x = printf("system    ->|%-0-0-0-0-0-0-0-0-0-0s|\n", "ok");
+  y = ft_printf("yours     ->|%-0-0-0-0-0-0-0-0-0-0s|\n", "ok");
   total += print_result(x, y); index++;
   print_total(total, index);
   return 0;
