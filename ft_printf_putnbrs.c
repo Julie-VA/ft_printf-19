@@ -16,7 +16,10 @@ void	ft_putnbr(int nb, int written)
 {
 	if (nb == -2147483648)
 	{
-		write(1, "-2147483648", 11);
+		if (written == 2)
+			write(1, "2147483648", 10);
+		else
+			write(1, "-2147483648", 11);
 	}
 	else
 	{

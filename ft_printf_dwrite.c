@@ -88,6 +88,7 @@ int	dwritestr(const char *str, va_list ap)
 			i++;
 			prcnts++;
 			flags = setflags(str, &i, ap, &tormv);
+			// printflags(flags);
 			if (dapplyflags(ap, flags, &count) == 0)
 			{
 				// printflags(flags);

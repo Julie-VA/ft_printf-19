@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:20:31 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/10 11:56:05 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/10 12:14:01 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int	main(void)
 	// printf("%d\n", printf("La fonction écrit : |%*.*s|\n", 5, 1, "hello"));
 	// printf("%d\n", ft_printf("%-3.s", NULL));
 	// printf("%d\n", printf("|%-5.3d|\n", 789));
-	printf("%d\n", ft_printf("|%20.5d|\n", -4242));
-	printf("%d\n", printf("|%20.5d|\n", -4242));
+	printf("%d\n", ft_printf("|%-5.0d|\n", 0));
+	printf("%d\n", printf("|%-5.0d|\n", 0));
 
 	// c and s
 	// printf("%d\n", printf("Syst printf writes : %c\n", 'e'));
