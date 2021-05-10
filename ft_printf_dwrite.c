@@ -50,6 +50,25 @@ static void	writeident(va_list ap, t_flags *flags)
 		ft_putstrp(flags->resultp);
 }
 
+// static void	printflags(t_flags *flags)
+// {
+// 	printf("\n");
+// 	printf("minus : %d\n", flags->minus);
+// 	printf("zero : %d\n", flags->zero);
+// 	printf("period : %d\n", flags->period);
+// 	printf("mfw : %d\n", flags->mfw);
+// 	printf("prcsn : %d\n", flags->prcsn);
+// 	printf("ident : %c\n", flags->ident);
+// 	printf("valdi : %d\n", flags->valdi);
+// 	printf("valuxX : %d\n", flags->valuxX);
+// 	printf("valp : %llu\n", flags->valp);
+// 	printf("vals : %s\n", flags->vals);
+// 	printf("resultxX : %s\n", flags->resultxX);
+// 	printf("resultp : %s\n", flags->resultp);
+// 	printf("notwrite : %d\n", flags->notwrite);
+// 	printf("\n");
+// }
+
 int	dwritestr(const char *str, va_list ap)
 {
 	int		i;
@@ -70,7 +89,10 @@ int	dwritestr(const char *str, va_list ap)
 			prcnts++;
 			flags = setflags(str, &i, ap, &tormv);
 			if (dapplyflags(ap, flags, &count) == 0)
+			{
+				// printflags(flags);
 				writeident(ap, flags);
+			}
 			i--;
 			while (str[i] != flags->ident)
 				i++;

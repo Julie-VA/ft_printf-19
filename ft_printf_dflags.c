@@ -22,7 +22,7 @@ static int	printzero(int len, int *count)
 	return (len);
 }
 
-static int	sprcsn(int len, t_flags *flags, int *count)
+static int	dprcsn(int len, t_flags *flags, int *count)
 {
 	int	written;
 
@@ -31,7 +31,6 @@ static int	sprcsn(int len, t_flags *flags, int *count)
 	{
 		write(1, "-", 1);
 		written = 2;
-		len--;
 	}
 	while (len < flags->prcsn)
 		len = printzero(len, count);
@@ -39,8 +38,12 @@ static int	sprcsn(int len, t_flags *flags, int *count)
 	return (1);
 }
 
-static void	smfw(int len, int *count, t_flags *flags)
+static void	dmfw(int len, int *count, t_flags *flags)
 {
+	if (flags->prcsn >= len)
+		len = flags->prcsn;
+	if (flags->valdi < 0)
+		len++;
 	while (len < flags->mfw)
 	{
 		write(1, " ", 1);
@@ -58,18 +61,20 @@ int	dapplyflags(va_list ap, t_flags *flags, int *count)
 	len = dgetlen(ap, flags, count);
 	if (flags->minus == 1)
 	{
-		if (written == 0 && flags->mfw > 0 && flags->mfw > flags->prcsn)
+		if (written == 0 && flags->mfw > 0 && flags->prcsn <= len)
 		{
 			ft_putnbr(flags->valdi, written);
 			written = 1;
 		}
 		else if (flags->prcsn > 0)
 			flags->minus = 0;
-		smfw(len, count, flags);
+		dmfw(len, count, flags);
 	}
 	else if (flags->prcsn > 0 || flags->mfw > 0)
 	{
-		if (flags->mfw > 0 && flags->zero == 1 && flags->mfw > flags->prcsn)
+		if (flags->valdi < 0)
+			len--;
+		if (flags->mfw > 0 && flags->zero == 1 && flags->prcsn <= len)
 		{
 			if (flags->valdi < 0)
 				write(1, "-", 1);
@@ -78,10 +83,19 @@ int	dapplyflags(va_list ap, t_flags *flags, int *count)
 			written = 2;
 			ft_putnbr(flags->valdi, written);
 		}
-		else if (flags->mfw > 0 && flags->mfw > flags->prcsn)
-			smfw(len, count, flags);
-		else if (flags->prcsn > 0 && written == 0)
-			written = sprcsn(len, flags, count);
+		else
+		{
+			if (flags->mfw > 0)
+			{
+				dmfw(len, count, flags);
+			}
+			if (flags->prcsn > 0 && written != 1)
+			{
+				written = dprcsn(len, flags, count);
+			}
+		}
 	}
 	return (written);
 }
+
+// printf("ok");
