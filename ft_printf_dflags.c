@@ -87,7 +87,10 @@ int	dapplyflags(va_list ap, t_flags *flags, int *count)
 		if (flags->mfw > 0 && flags->zero == 1 && flags->prcsn <= len)
 		{
 			if (flags->valdi < 0)
+			{
 				write(1, "-", 1);
+				len++;
+			}
 			written = 2;
 			while (len < flags->mfw)
 				len = printzero(len, count);
