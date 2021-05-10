@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:20:31 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/07 16:07:50 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/10 10:25:44 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ int	main(void)
 	// printf("%d\n", printf("La fonction écrit : |%-0*.*s et %5s|\n", 7, 3, "hello", "ok"));
 	// printf("%d\n", ft_printf("Ma fonction écrit : |%*.*s|\n", 5, 1, "hello"));
 	// printf("%d\n", printf("La fonction écrit : |%*.*s|\n", 5, 1, "hello"));
-	printf("%d\n", ft_printf("%-3.s", NULL));
-	printf("%d\n", printf("%-3.s", NULL));
-	// printf("%d\n", ft_printf("%.1s", ""));
-	// printf("%d\n", printf("%.1s", ""));
+	// printf("%d\n", ft_printf("%-3.s", NULL));
+	// printf("%d\n", printf("|%-5.3d|\n", 789));
+	printf("%d\n", ft_printf("|%5.3d|\n", 789));
+	printf("%d\n", printf("|%5.3d|\n", 789));
 
 	// c and s
 	// printf("%d\n", printf("Syst printf writes : %c\n", 'e'));

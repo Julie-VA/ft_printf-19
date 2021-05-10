@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:15:43 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/07 15:25:22 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/10 09:26:28 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	sapplyflags(va_list ap, t_flags *flags, int *count)
 	int	len;
 
 	written = 0;
-	len = getlen(ap, flags, count);
+	len = sgetlen(ap, flags, count);
 	if (flags->prcsn <= 0 && flags->notwrite == 1)
 		flags->minus = 0;
 	if (flags->minus == 1)
@@ -141,7 +141,7 @@ static int	setmfw(const char *str, int *i)
 	return (mfw);
 }
 
-t_flags	*set_sflags(const char *str, int *i, va_list ap, int *tormv)
+t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv)
 {
 	t_flags	*flags;
 	int		tormvcpy;
@@ -149,7 +149,7 @@ t_flags	*set_sflags(const char *str, int *i, va_list ap, int *tormv)
 	tormvcpy = *i;
 	flags = ft_lstnew();
 	resetflags(flags);
-	while (islegal(str, *i) < 2)
+	while (islegal(str, *i) == 1)
 	{
 		if (str[*i] == '-')
 			flags->minus = 1;
@@ -176,7 +176,7 @@ t_flags	*set_sflags(const char *str, int *i, va_list ap, int *tormv)
 					flags->notwrite = 1;
 			}
 		}
-		if (islegal(str, *i) < 2)
+		if (islegal(str, *i) == 1)
 			*i += 1;
 	}
 	flags->ident = str[*i];
