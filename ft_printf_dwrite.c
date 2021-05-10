@@ -89,7 +89,7 @@ int	dwritestr(const char *str, va_list ap)
 			prcnts++;
 			flags = setflags(str, &i, ap, &tormv);
 			// printflags(flags);
-			if (dapplyflags(ap, flags, &count) == 0)
+			if (dapplyflags(ap, flags, &count) == 0 && flags->notwrite < 2)
 			{
 				// printflags(flags);
 				writeident(ap, flags);
@@ -106,5 +106,9 @@ int	dwritestr(const char *str, va_list ap)
 			i++;
 		}
 	}
+	// printf("i=%d", i);
+	// printf("count=%d", count);
+	// printf("prcnts=%d", prcnts);
+	// printf("tormv=%d", tormv);
 	return (i + count - (prcnts * 2) - tormv);
 }
