@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/10 13:58:23 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/11 17:26:12 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,9 @@ int		writenotlegal(const char *str, int i, int *count);
 
 //write
 int		writestr(const char *str, va_list ap);
-int		swritestr(const char *str, va_list ap);
-int		swriteident(int i, t_flags *flags);
+void	swrite(t_flags *flags, va_list ap, int *count);
 int		sgetlen(va_list ap, t_flags *flags, int *count);
-int		dwritestr(const char *str, va_list ap);
+void	dwrite(t_flags *flags, va_list ap, int *count);
 int		dgetlen(va_list ap, t_flags *flags, int *count);
 
 //utils
