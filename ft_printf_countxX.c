@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 15:08:49 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/04/30 11:38:52 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/11 19:40:47 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	countnputnbrhex(va_list ap, int cap, int *count, t_flags *flags)
 	if (nb == 0)
 	{
 		write(1, "0", 1);
-		*count += 1;
+		(*count)++;
 		return ;
 	}
 	*count += convnwrite((unsigned int)nb, result, cap, flags);

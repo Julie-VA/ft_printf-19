@@ -25,7 +25,7 @@ int	countint(va_list ap, int *count, t_flags *flags)
 	valcpy = va_arg(ap, int);
 	if (valcpy < 0)
 	{
-		*count += 1;
+		(*count)++;
 		valcpy *= -1;
 		sign = -1;
 	}
@@ -33,11 +33,11 @@ int	countint(va_list ap, int *count, t_flags *flags)
 		val = 2147483648;
 	val = (unsigned int)valcpy;
 	if (val == 0)
-		*count += 1;
+		(*count)++;
 	while (val > 0)
 	{
 		val /= 10;
-		*count += 1;
+		(*count)++;
 	}
 	flags->valdi = valcpy * sign;
 	return (*count - len);
@@ -57,7 +57,7 @@ int	countuint(va_list ap, int *count, t_flags *flags)
 	while (val > 0)
 	{
 		val /= 10;
-		*count += 1;
+		(*count)++;
 	}
 	flags->valuxX = valcpy;
 	return (*count - len);

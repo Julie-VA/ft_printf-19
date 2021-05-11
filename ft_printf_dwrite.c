@@ -20,7 +20,7 @@ int	dgetlen(va_list ap, t_flags *flags, int *count)
 
 	len = *count;
 	if (flags->ident == 'c')
-		*count += 1;
+		(*count)++;
 	else if (flags->ident == 'd' || flags->ident == 'i')
 		countint(ap, count, flags);
 	else if (flags->ident == 'u')

@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:15:43 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/10 09:26:28 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/11 19:40:22 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ static void	smfw(int len, int *count, t_flags *flags)
 		{
 			write(1, "0", 1);
 			i++;
-			*count += 1;
+			(*count)++;
 		}
 		else
 		{
 			write(1, " ", 1);
 			i++;
-			*count += 1;
+			(*count)++;
 		}
 	}
 }

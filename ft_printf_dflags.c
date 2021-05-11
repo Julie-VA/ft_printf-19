@@ -18,7 +18,7 @@ static int	printzero(int len, int *count)
 {
 	write(1, "0", 1);
 	len++;
-	*count += 1;
+	(*count)++;
 	return (len);
 }
 
@@ -48,7 +48,7 @@ static void	dmfw(int len, int *count, t_flags *flags)
 	{
 		write(1, " ", 1);
 		len++;
-		*count += 1;
+		(*count)++;
 	}
 	if (flags->notwrite == 2)
 	{

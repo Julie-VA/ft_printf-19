@@ -18,7 +18,7 @@ static int	printzero(int len, int *count)
 {
 	write(1, "0", 1);
 	len++;
-	*count += 1;
+	(*count)++;
 	return (len);
 }
 
@@ -39,7 +39,7 @@ static void	dmfw(int len, int *count, t_flags *flags)
 	{
 		write(1, " ", 1);
 		len++;
-		*count += 1;
+		(*count)++;
 	}
 }
 
@@ -50,6 +50,7 @@ int	uapplyflags(va_list ap, t_flags *flags, int *count)
 
 	written = 0;
 	len = dgetlen(ap, flags, count);
+	// printf("len=%d\n", len);
 	if (flags->period == 1 && flags->prcsn == 0 && flags->valuxX == 0)
 	{
 		flags->notwrite = 2;

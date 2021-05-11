@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:20:31 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/11 18:21:22 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/11 19:40:44 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int	main(void)
 	// printf("%d\n", printf("|%-5.3d|\n", 789));
 	// printf("%d\n", ft_printf("%-*.82%\n", 5));
 	// printf("%d\n", printf("%-*.82%\n", 5));
-	// printf("%d\n", ft_printf("%09.1d\n", UINT_MAX));
-	// printf("%d\n", printf("%%09.1d\n", UINT_MAX));
+	printf("%d\n", ft_printf("|%093.12u|\n", UINT_MAX));
+	printf("%d\n", printf("|%093.12u|\n", UINT_MAX));
 	// printf("%d\n", ft_printf("%u\n", 5));
-	printf("%d\n", printf("%05u\n", 789));
+	// printf("%d\n", printf("%05u\n", 789));
 
 	// c and s
 	// printf("%d\n", printf("Syst printf writes : %c\n", 'e'));

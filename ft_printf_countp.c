@@ -23,7 +23,7 @@ static void	lluconvnwrite(LLU nb, char *result, int *count, t_flags *flags)
 		mod = nb % 16;
 		result[i++] = convhex(mod, 0);
 		nb = nb / 16;
-		*count += 1;
+		(*count)++;
 	}
 	result[i] = '\0';
 	i = ft_strlen(result);
@@ -46,7 +46,7 @@ void	countnputnbrlluhex(va_list ap, int *count, t_flags *flags)
 	if (nb == 0)
 	{
 		write(1, "0", 1);
-		*count += 1;
+		(*count)++;
 		return ;
 	}
 	lluconvnwrite(nb, result, count, flags);
