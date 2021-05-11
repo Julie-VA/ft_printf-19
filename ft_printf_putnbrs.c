@@ -42,7 +42,7 @@ void	ft_putnbr(int nb, int written)
 	}
 }
 
-void	ft_uputnbr(unsigned int nb)
+void	ft_uputnbr(unsigned int nb, int written)
 {
 	if (nb <= 9)
 	{
@@ -50,7 +50,7 @@ void	ft_uputnbr(unsigned int nb)
 	}
 	else
 	{
-		ft_putnbr(nb / 10, 0);
+		ft_putnbr(nb / 10, written);
 		ft_putchar((nb % 10) + '0');
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/11 17:26:12 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/11 18:56:30 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	resetflags(t_flags *flags);
 t_flags	*set_sflags(const char *str, int *i, va_list ap, int *tormv);
 int		sapplyflags(va_list ap, t_flags *flags, int *count);
 int		dapplyflags(va_list ap, t_flags *flags, int *count);
+int		uapplyflags(va_list ap, t_flags *flags, int *count);
 
 //legal
 int		checklegal(const char *str, t_flags *flags, int i);
@@ -56,6 +57,7 @@ void	swrite(t_flags *flags, va_list ap, int *count);
 int		sgetlen(va_list ap, t_flags *flags, int *count);
 void	dwrite(t_flags *flags, va_list ap, int *count);
 int		dgetlen(va_list ap, t_flags *flags, int *count);
+void	uwrite(t_flags *flags, va_list ap, int *count);
 
 //utils
 t_flags	*ft_lstnew(void);
@@ -66,7 +68,7 @@ void	ft_putstrp(char *str);
 
 //diu
 void	ft_putnbr(int nb, int written);
-void	ft_uputnbr(unsigned int nb);
+void	ft_uputnbr(unsigned int nb, int written);
 
 //xX
 char	convhex(int mod, int cap);
