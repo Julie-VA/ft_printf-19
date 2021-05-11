@@ -35,6 +35,8 @@ static int	dprcsn(int len, t_flags *flags, int *count)
 
 static void	dmfw(int len, int *count, t_flags *flags)
 {
+	if (len < flags->prcsn)
+		len += flags->prcsn - len;
 	while (len < flags->mfw)
 	{
 		write(1, " ", 1);
