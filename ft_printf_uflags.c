@@ -42,7 +42,7 @@ static void	dmfw(int len, int *count, t_flags *flags)
 		len = 0;
 		(*count)--;
 	}
-	else if (flags->valuxX == 0 && flags->prcsn > 0)
+	if (flags->valuxX == 0 && flags->prcsn > 0)
 	{
 		len = flags->mfw - flags->prcsn;
 		while (len > 0)
