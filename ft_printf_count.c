@@ -50,17 +50,21 @@ int	countuint(va_list ap, int *count, t_flags *flags)
 	int				len;
 
 	val = va_arg(ap, unsigned int);
-	len = *count;
+	len = 0;
 	valcpy = val;
 	if (val == 0)
-		*count = 1;
+	{
+		(*count)++;
+		return (1);
+	}
 	while (val > 0)
 	{
 		val /= 10;
-		(*count)++;
+		len++;
 	}
 	flags->valuxX = valcpy;
-	return (*count - len);
+	*count += len;
+	return (len);
 }
 
 int	scount(char *s, int *count, t_flags *flags)

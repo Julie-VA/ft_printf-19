@@ -37,11 +37,31 @@ static void	dmfw(int len, int *count, t_flags *flags)
 {
 	if (len < flags->prcsn)
 		len += flags->prcsn - len;
-	while (len < flags->mfw)
+	else if (flags->valuxX == 0 && flags->prcsn <= 0)
 	{
-		write(1, " ", 1);
-		len++;
-		(*count)++;
+		len = 0;
+		(*count)--;
+	}
+	else if (flags->valuxX == 0 && flags->prcsn > 0)
+	{
+		len = flags->mfw - flags->prcsn;
+		while (len > 0)
+		{
+			write(1, " ", 1);
+			len--;
+			(*count)++;
+		}
+	}
+	else
+	{
+		if (flags->valuxX == 0 && flags->prcsn > 0)
+			len = flags->mfw - flags->prcsn + 1;
+		while (len < flags->mfw)
+		{
+			write(1, " ", 1);
+			len++;
+			(*count)++;
+		}
 	}
 }
 
@@ -52,7 +72,6 @@ int	uapplyflags(va_list ap, t_flags *flags, int *count)
 
 	written = 0;
 	len = dgetlen(ap, flags, count);
-	// printf("len=%d\n", len);
 	if (flags->period == 1 && flags->prcsn == 0 && flags->valuxX == 0)
 	{
 		flags->notwrite = 2;
@@ -77,7 +96,10 @@ int	uapplyflags(va_list ap, t_flags *flags, int *count)
 			ft_uputnbr(flags->valuxX, written);
 			written = 1;
 		}
-		dmfw(len, count, flags);
+		if (flags->period == 0 && flags->prcsn <= 0 && flags->mfw >= flags->prcsn)
+			dmfw(len, count, flags);
+		else if (flags->period == 1 && flags->mfw > flags->prcsn)
+			dmfw(len, count, flags);		
 	}
 	else if (flags->prcsn > 0 || flags->mfw > 0)
 	{
@@ -91,13 +113,9 @@ int	uapplyflags(va_list ap, t_flags *flags, int *count)
 		else
 		{
 			if (flags->mfw > 0)
-			{
 				dmfw(len, count, flags);
-			}
 			if (flags->prcsn > 0 && written != 1)
-			{
 				written = dprcsn(len, flags, count);
-			}
 		}
 	}
 	if (flags->valuxX == 0 && flags->notwrite == 2 && flags->mfw == 0)
