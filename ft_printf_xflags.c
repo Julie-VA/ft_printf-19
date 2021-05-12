@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 14:52:10 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/12 15:51:25 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/12 17:38:51 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	dmfw(int len, int *count, t_flags *flags)
 		len++;
 		(*count)++;
 	}
-	if (flags->notwrite == 2)
+	if (flags->period == 1 && flags->prcsn == 0 && flags->valuxX == 0)
 	{
 		write(1, " ", 1);
 	}
@@ -68,6 +68,7 @@ int	xapplyflags(va_list ap, t_flags *flags, int *count)
 	if (flags->period == 1 && flags->prcsn == 0 && flags->valuxX == 0)
 	{
 		flags->minus = 0;
+		flags->notwrite = 2;
 	}
 	if (flags->prcsn > 0 && flags->mfw == 0)
 		flags->minus = 0;
