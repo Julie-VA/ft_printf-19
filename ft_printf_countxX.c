@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 15:08:49 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/11 19:40:47 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/12 15:51:06 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,11 @@ void	countnputnbrhex(va_list ap, int cap, int *count, t_flags *flags)
 	int		nb;
 
 	nb = va_arg(ap, int);
+	flags->valuxX = (unsigned int)nb;
 	if (nb == 0)
 	{
-		write(1, "0", 1);
+		result[0] = '0';
+		result[1] = '\0';
 		(*count)++;
 		return ;
 	}

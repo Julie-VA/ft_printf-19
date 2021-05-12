@@ -6,7 +6,7 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 11:51:03 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/05/11 17:52:02 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/05/12 15:07:41 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS	= ft_printf.c				\
 			ft_printf_count.c		\
 			ft_printf_countxX.c		\
 			ft_printf_dflags.c		\
-			ft_printf_dwrite.c		\
+			ft_printf_intwrite.c	\
 			ft_printf_sflags.c		\
 			ft_printf_legal.c		\
 			ft_printf_putnbrs.c		\
@@ -23,6 +23,7 @@ SRCS	= ft_printf.c				\
 			ft_printf_utils.c		\
 			ft_printf_swrite.c		\
 			ft_printf_write.c		\
+			ft_printf_xflags.c		\
 
 NAME	= libftprintf.a
 

@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/11 18:56:30 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/12 15:01:45 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ t_flags	*set_sflags(const char *str, int *i, va_list ap, int *tormv);
 int		sapplyflags(va_list ap, t_flags *flags, int *count);
 int		dapplyflags(va_list ap, t_flags *flags, int *count);
 int		uapplyflags(va_list ap, t_flags *flags, int *count);
+int		xapplyflags(va_list ap, t_flags *flags, int *count);
+
 
 //legal
 int		checklegal(const char *str, t_flags *flags, int i);
@@ -58,6 +60,7 @@ int		sgetlen(va_list ap, t_flags *flags, int *count);
 void	dwrite(t_flags *flags, va_list ap, int *count);
 int		dgetlen(va_list ap, t_flags *flags, int *count);
 void	uwrite(t_flags *flags, va_list ap, int *count);
+void	xwrite(t_flags *flags, va_list ap, int *count);
 
 //utils
 t_flags	*ft_lstnew(void);
