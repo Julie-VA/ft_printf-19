@@ -37,7 +37,7 @@ static void	dmfw(int len, int *count, t_flags *flags)
 {
 	if (len < flags->prcsn)
 		len += flags->prcsn - len;
-	else if (flags->valuxX == 0 && flags->prcsn <= 0)
+	else if (flags->valuxX == 0 && flags->prcsn <= 0 && flags->period == 1)
 	{
 		len = 0;
 		(*count)--;
@@ -54,8 +54,6 @@ static void	dmfw(int len, int *count, t_flags *flags)
 	}
 	else
 	{
-		if (flags->valuxX == 0 && flags->prcsn > 0)
-			len = flags->mfw - flags->prcsn + 1;
 		while (len < flags->mfw)
 		{
 			write(1, " ", 1);
