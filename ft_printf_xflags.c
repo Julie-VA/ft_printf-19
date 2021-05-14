@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 14:52:10 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 09:27:23 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/14 12:17:28 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ static void	dmfw(int len, int *count, t_flags *flags)
 {
 	if (flags->prcsn >= len)
 		len = flags->prcsn;
-	if (flags->valuxX < 0)
-		len++;
 	while (len < flags->mfw)
 	{
 		write(1, " ", 1);

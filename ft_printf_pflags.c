@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 09:57:40 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 12:11:23 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/14 12:19:14 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static int	dprcsn(int len, t_flags *flags, int *count)
 	int	written;
 
 	written = 0;
+	len -= 2;
 	if (flags->valp < 0 && flags->prcsn > len)
 	{
 		write(1, "-", 1);
@@ -42,8 +43,6 @@ static void	dmfw(int len, int *count, t_flags *flags)
 {
 	if (flags->prcsn >= len)
 		len = flags->prcsn;
-	if (flags->valp < 0)
-		len++;
 	while (len < flags->mfw)
 	{
 		write(1, " ", 1);
