@@ -6,12 +6,12 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 11:51:03 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/05/14 15:20:41 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/05/14 16:19:08 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= ft_printf.c				\
-			ft_printf_cflags.c		\
+			ft_printf_cprcntflags.c	\
 			ft_printf_countp.c		\
 			ft_printf_count.c		\
 			ft_printf_countxX.c		\

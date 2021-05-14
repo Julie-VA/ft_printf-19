@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 15:05:52 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/14 16:29:26 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		uapplyflags(va_list ap, t_flags *flags, int *count);
 int		xapplyflags(va_list ap, t_flags *flags, int *count);
 int		papplyflags(va_list ap, t_flags *flags, int *count, int *check);
 int		capplyflags(va_list ap, t_flags *flags, int *count);
+int		prcntapplyflags(t_flags *flags, int *count);
 
 
 //legal
@@ -65,6 +66,7 @@ void	uwrite(t_flags *flags, va_list ap, int *count);
 void	xwrite(t_flags *flags, va_list ap, int *count);
 void	powrite(t_flags *flags, va_list ap, int *count);
 void	cwrite(t_flags *flags, va_list ap, int *count);
+void	prcntwrite(t_flags *flags, int *count);
 
 //utils
 t_flags	*ft_lstnew(void);

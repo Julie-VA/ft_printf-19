@@ -35,9 +35,11 @@
 
 static void	startwrite(va_list ap, t_flags *flags, int *count)
 {
-	if (flags->ident == 'c' || flags->ident == '%')
-		cwrite(flags,ap, count);
-	if (flags->ident == 's')
+	if (flags->ident == 'c')
+		cwrite(flags, ap, count);
+	else if (flags->ident == '%')
+		prcntwrite(flags, count);
+	else if (flags->ident == 's')
 		swrite(flags, ap, count);
 	else if (flags->ident == 'd' || flags->ident == 'i')
 		dwrite(flags, ap, count);
@@ -70,9 +72,9 @@ int	writestr(const char *str, va_list ap)
 			flags = setflags(str, &i, ap, &tormv);
 			// printflags(flags);
 			startwrite(ap, flags, &count);
-			i--;
-			while (str[i] != flags->ident)
-				i++;
+			// i--;
+			// while (str[i] != flags->ident)
+			// 	i++;
 			i++;
 			free(flags);
 		}

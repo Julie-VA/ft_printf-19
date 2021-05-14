@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_swrite.c                                 :+:      :+:    :+:   */
+/*   ft_printf_cswrite.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:55:09 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 15:19:11 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/14 16:29:03 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,12 @@ void	cwrite(t_flags *flags, va_list ap, int *count)
 {
 	if (capplyflags(ap, flags, count) == 0)
 		ft_putchar(va_arg(ap, int));
+	(*count)++;
+}
+
+void	prcntwrite(t_flags *flags, int *count)
+{
+	if (prcntapplyflags(flags, count) == 0)
+		ft_putchar('%');
 	(*count)++;
 }
