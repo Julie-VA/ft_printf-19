@@ -47,7 +47,7 @@ static void	writeident(va_list ap, t_flags *flags)
 	else if (flags->ident == 'X')
 		ft_putstr(flags->resultxX);
 	else if (flags->ident == 'p')
-		ft_putstrp(flags->resultp);
+		ft_putstr(flags->resultp);
 }
 
 void	dwrite(t_flags *flags, va_list ap, int *count)
@@ -65,5 +65,11 @@ void	uwrite(t_flags *flags, va_list ap, int *count)
 void	xwrite(t_flags *flags, va_list ap, int *count)
 {
 	if (xapplyflags(ap, flags, count) == 0 && flags->notwrite < 2)
+		writeident(ap, flags);
+}
+
+void	powrite(t_flags *flags, va_list ap, int *count)
+{
+	if (papplyflags(ap, flags, count) == 0 && flags->notwrite < 2)
 		writeident(ap, flags);
 }

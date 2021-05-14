@@ -45,8 +45,8 @@ static void	startwrite(va_list ap, t_flags *flags, int *count)
 		uwrite(flags, ap, count);
 	else if (flags->ident == 'x' || flags->ident == 'X')
 		xwrite(flags, ap, count);
-	// else if (flags->ident == 'p')
-	// 	dosomething;
+	else if (flags->ident == 'p')
+		powrite(flags, ap, count);
 }
 
 int	writestr(const char *str, va_list ap)

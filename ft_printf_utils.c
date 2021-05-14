@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 14:21:37 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/07 10:15:55 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/14 10:34:14 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	ft_putstrp(char *str)
 	int i;
 
 	i = 0;
-	write(1, "0x", 2);
 	while (str[i])
 	{
 		write(1, &str[i], 1);
