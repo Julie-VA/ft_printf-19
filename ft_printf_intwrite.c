@@ -70,6 +70,15 @@ void	xwrite(t_flags *flags, va_list ap, int *count)
 
 void	powrite(t_flags *flags, va_list ap, int *count)
 {
-	if (papplyflags(ap, flags, count) == 0 && flags->notwrite < 2)
-		writeident(ap, flags);
+	int	check;
+
+	check = 0;
+	if (papplyflags(ap, flags, count, &check) == 0)
+	{
+		if (check == 0)
+			write(1, "0x", 2);
+		if (flags->notwrite < 2)
+			writeident(ap, flags);
+	}
+	// *count += 2;
 }

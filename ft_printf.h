@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 10:40:42 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/14 12:04:00 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		sapplyflags(va_list ap, t_flags *flags, int *count);
 int		dapplyflags(va_list ap, t_flags *flags, int *count);
 int		uapplyflags(va_list ap, t_flags *flags, int *count);
 int		xapplyflags(va_list ap, t_flags *flags, int *count);
-int		papplyflags(va_list ap, t_flags *flags, int *count);
+int		papplyflags(va_list ap, t_flags *flags, int *count, int *check);
 
 
 //legal

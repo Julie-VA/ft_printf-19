@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 15:34:01 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/04/30 11:38:58 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/14 12:10:42 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,11 @@ void	countnputnbrlluhex(va_list ap, int *count, t_flags *flags)
 
 	*count += 2;
 	nb = (LLU)(va_arg(ap, void *));
+	flags->valp = (LLU)nb;
 	if (nb == 0)
 	{
-		write(1, "0", 1);
+		flags->resultp[0] = '0';
+		flags->resultp[1] = '\0';
 		(*count)++;
 		return ;
 	}
