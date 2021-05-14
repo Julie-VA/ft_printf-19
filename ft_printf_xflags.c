@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 14:52:10 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/12 17:38:51 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/14 09:27:23 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int	xapplyflags(va_list ap, t_flags *flags, int *count)
 			while (len < flags->mfw)
 				len = printzero(len, count);
 			ft_putstr(flags->resultxX);
+			written = 1;
 		}
 		else
 		{
