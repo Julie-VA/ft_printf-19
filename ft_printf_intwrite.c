@@ -34,11 +34,9 @@ int	dgetlen(va_list ap, t_flags *flags, int *count)
 	return (*count - len);
 }
 
-static void	writeident(va_list ap, t_flags *flags)
+static void	writeident(t_flags *flags)
 {
-	if (flags->ident == 'c')
-		ft_putchar((char)va_arg(ap, int));
-	else if (flags->ident == 'd' || flags->ident == 'i')
+	if (flags->ident == 'd' || flags->ident == 'i')
 		ft_putnbr(flags->valdi, 0);
 	else if (flags->ident == 'u')
 		ft_uputnbr(flags->valuxX, 0);
@@ -53,19 +51,19 @@ static void	writeident(va_list ap, t_flags *flags)
 void	dwrite(t_flags *flags, va_list ap, int *count)
 {
 	if (dapplyflags(ap, flags, count) == 0 && flags->notwrite < 2)
-		writeident(ap, flags);
+		writeident(flags);
 }
 
 void	uwrite(t_flags *flags, va_list ap, int *count)
 {
 	if (uapplyflags(ap, flags, count) == 0 && flags->notwrite < 2)
-		writeident(ap, flags);
+		writeident(flags);
 }
 
 void	xwrite(t_flags *flags, va_list ap, int *count)
 {
 	if (xapplyflags(ap, flags, count) == 0 && flags->notwrite < 2)
-		writeident(ap, flags);
+		writeident(flags);
 }
 
 void	powrite(t_flags *flags, va_list ap, int *count)
@@ -78,7 +76,6 @@ void	powrite(t_flags *flags, va_list ap, int *count)
 		if (check == 0)
 			write(1, "0x", 2);
 		if (flags->notwrite < 2)
-			writeident(ap, flags);
+			writeident(flags);
 	}
-	// *count += 2;
 }
