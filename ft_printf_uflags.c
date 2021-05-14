@@ -84,7 +84,7 @@ int	uapplyflags(va_list ap, t_flags *flags, int *count)
 			ft_uputnbr(flags->valuxX, written);
 			written = 1;
 		}
-		else if (flags->mfw > 0 && flags->prcsn > len)
+		else if (flags->mfw > 0 || flags->prcsn > len)
 		{
 			while (len < flags->prcsn)
 				len = printzero(len, count);
