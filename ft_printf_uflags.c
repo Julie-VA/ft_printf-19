@@ -115,7 +115,7 @@ int	uapplyflags(va_list ap, t_flags *flags, int *count)
 		}
 	}
 	if (flags->valuxX == 0 && flags->notwrite == 2 && flags->mfw == 0)
-		*count = 0;
+		(*count)--;
 	return (written);
 }
 
