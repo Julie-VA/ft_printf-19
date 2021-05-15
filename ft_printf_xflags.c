@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 14:52:10 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/15 20:44:31 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/16 01:05:01 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,14 @@ static int	printzero(int len, int *count)
 
 static int	dprcsn(int len, t_flags *flags, int *count)
 {
-	if (flags->prcsn > len)
+	int	written;
+
+	written = 0;
+	if (flags->valuxX < 0 && flags->prcsn > len)
+	{
 		write(1, "-", 1);
+		written = 2;
+	}
 	while (len < flags->prcsn)
 		len = printzero(len, count);
 	ft_putstr(flags->resultxX);
@@ -55,7 +61,7 @@ int	xapplyflags(va_list ap, t_flags *flags, int *count)
 
 	written = 0;
 	len = dgetlen(ap, flags, count);
-	if (len > 0)
+	if (flags->valuxX < 0 && len > 0)
 		len--;
 	if (flags->period == 1 && flags->prcsn == 0 && flags->valuxX == 0)
 	{
