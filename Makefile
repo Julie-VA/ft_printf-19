@@ -6,7 +6,7 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 11:51:03 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/05/14 16:19:08 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/05/15 21:25:40 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,23 @@ SRCS	= ft_printf.c				\
 			ft_printf_cswrite.c		\
 			ft_printf_write.c		\
 			ft_printf_xflags.c		\
+
+SRCG	= ft_printf.o				\
+			ft_printf_cprcntflags.o	\
+			ft_printf_countp.o		\
+			ft_printf_count.o		\
+			ft_printf_countxX.o		\
+			ft_printf_dflags.o		\
+			ft_printf_intwrite.o	\
+			ft_printf_sflags.o		\
+			ft_printf_legal.o		\
+			ft_printf_pflags.o		\
+			ft_printf_putnbrs.o		\
+			ft_printf_uflags.o		\
+			ft_printf_utils.o		\
+			ft_printf_cswrite.o		\
+			ft_printf_write.o		\
+			ft_printf_xflags.o		\
 
 NAME	= libftprintf.a
 
@@ -49,6 +66,9 @@ clean:
 
 fclean:		clean
 			${RM} ${NAME}
+
+gitclean:
+			git rm ${SRCG}
 
 re:			fclean all
 
