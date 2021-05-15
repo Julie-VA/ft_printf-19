@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 09:57:40 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 12:34:09 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/15 19:43:40 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,9 @@ static int	printzero(int len, int *count)
 
 static int	dprcsn(int len, t_flags *flags, int *count)
 {
-	int	written;
-
-	written = 0;
 	len -= 2;
-	if (flags->valp < 0 && flags->prcsn > len)
-	{
+	if (flags->prcsn > len)
 		write(1, "-", 1);
-		written = 2;
-	}
 	while (len < flags->prcsn)
 		len = printzero(len, count);
 	ft_putstr(flags->resultp);

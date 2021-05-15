@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:20:31 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 16:29:36 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/15 20:28:58 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,37 @@ int	main(void)
 	// printf("%d\n", printf("%05u\n", 789));
 	// printf("%d\n", ft_printf("|%-.2u|\n", 0));
 	// printf("%d\n", printf("|%-.2u|\n", 0));
-	printf("%d\n", ft_printf("Ma fonction écrit : |%02%|\n"));
-	printf("%d\n", printf("La fonction écrit : |%02%|\n"));
+	// printf("%d\n", ft_printf("Ma fonction écrit : |%02%|\n"));
+	// printf("%d\n", printf("La fonction écrit : |%02%|\n"));
+
+	int		a = -1;
+	int		b = 5;
+	char	c = 'a';
+	int		d = 2147483647;
+	int		e = -2147483648;
+	// int		f = 42;
+	// int		g = 25;
+	// int		h = 4200;
+	int		i = 8;
+	int		j = -12;
+	int		k = 123456789;
+	int		l = 0;
+	int		m = -12345678;
+	// char	*n = "abcdefghijklmnop";
+	// char	*o = "-a";
+	// char	*p = "-12";
+	// char	*q = "0";
+	// char	*r = "%%";
+	// char	*s = "-2147483648";
+	// char	*t = "0x12345678";
+	// char	*u = "-0";
+
+	// printf("yours : %d\n", ft_printf("%0.i, %0.d, %0.d, %0.d", i, j, k, l));
+	// printf("system : %d\n", printf("%0.i, %0.d, %0.d, %0.d", i, j, k, l));
+	// printf("yours : %d\n", ft_printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+	// printf("system : %d\n", printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+	printf("yours : %d\n", ft_printf("%*X", a, i));
+	printf("system : %d\n", printf("%*X", a, i));
 
 	// c and s
 	// printf("%d\n", printf("Syst printf writes : |%*c|\n", 2, 'e'));
