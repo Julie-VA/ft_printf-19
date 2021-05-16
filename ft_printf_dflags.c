@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 17:09:13 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/15 21:16:30 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/16 15:20:26 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,6 @@ int	dapplyflags(va_list ap, t_flags *flags, int *count)
 		}
 	}
 	if (flags->valdi == 0 && flags->notwrite == 2 && flags->mfw == 0)
-		*count = 0;
+		(*count)--;
 	return (written);
 }
