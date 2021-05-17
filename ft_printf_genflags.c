@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:46:20 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/17 16:09:00 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 16:30:18 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,35 @@ static int	setmfw(const char *str, int *i)
 	return (mfw);
 }
 
+static void	setflagshelper(const char *str, int *i, va_list ap, t_flags *flags)
+{
+	if (str[*i] == '-')
+		flags->minus = 1;
+	else if (str[*i] >= '0' && str[*i] <= '9')
+	{
+		if (str[*i] == '0' && flags->zero == 0)
+			flags->zero = 1;
+		flags->mfw = setmfw(str, i);
+		*i -= 1;
+	}
+	else if (str[*i] == '.')
+	{
+		flags->period = 1;
+		flags->prcsn = setprecision(str, i, flags);
+	}
+	else if (str[*i] == '*')
+	{
+		if (flags->period == 0)
+			flags->mfw = va_arg(ap, int);
+		else if (flags->period == 1)
+		{
+			flags->prcsn = va_arg(ap, int);
+			if (flags->prcsn == 0)
+				flags->notwrite = 1;
+		}
+	}
+}
+
 t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv)
 {
 	t_flags	*flags;
@@ -79,31 +108,7 @@ t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv)
 	resetflags(flags);
 	while (islegal(str, *i) == 1)
 	{
-		if (str[*i] == '-')
-			flags->minus = 1;
-		else if (str[*i] >= '0' && str[*i] <= '9')
-		{
-			if (str[*i] == '0' && flags->zero == 0)
-				flags->zero = 1;
-			flags->mfw = setmfw(str, i);
-			*i -= 1;
-		}
-		else if (str[*i] == '.')
-		{
-			flags->period = 1;
-			flags->prcsn = setprecision(str, i, flags);
-		}
-		else if (str[*i] == '*')
-		{
-			if (flags->period == 0)
-				flags->mfw = va_arg(ap, int);
-			else if (flags->period == 1)
-			{
-				flags->prcsn = va_arg(ap, int);
-				if (flags->prcsn == 0)
-					flags->notwrite = 1;
-			}
-		}
+		setflagshelper(str, i, ap, flags);
 		if (islegal(str, *i) == 1)
 			*i += 1;
 	}
