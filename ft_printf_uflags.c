@@ -33,11 +33,11 @@ static int	dprcsn(int len, t_flags *flags, int *count)
 	return (1);
 }
 
-static void	dmfw(int len, int *count, t_flags *flags)
+static void	dmfw(int len, int *count, t_flags *flags, int written)
 {
 	if (len < flags->prcsn)
 		len += flags->prcsn - len;
-	else if (flags->valuxX == 0 && flags->prcsn <= 0 && flags->period == 1)
+	else if (flags->valuxX == 0 && flags->prcsn <= 0 && flags->period == 1 && written == 0)
 	{
 		len = 0;
 		(*count)--;
@@ -93,9 +93,9 @@ int	uapplyflags(va_list ap, t_flags *flags, int *count)
 			written = 1;
 		}
 		if (flags->period == 0 && flags->prcsn <= 0 && flags->mfw >= flags->prcsn)
-			dmfw(len, count, flags);
+			dmfw(len, count, flags, written);
 		else if (flags->period == 1 && flags->mfw > flags->prcsn)
-			dmfw(len, count, flags);		
+			dmfw(len, count, flags, written);	
 	}
 	else if (flags->prcsn > 0 || flags->mfw > 0)
 	{
@@ -109,7 +109,7 @@ int	uapplyflags(va_list ap, t_flags *flags, int *count)
 		else
 		{
 			if (flags->mfw > 0)
-				dmfw(len, count, flags);
+				dmfw(len, count, flags, written);
 			if (flags->prcsn > 0 && written != 1)
 				written = dprcsn(len, flags, count);
 		}

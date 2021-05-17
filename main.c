@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:20:31 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/15 20:28:58 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 09:33:48 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(void)
 	// printf("%d\n", printf("La fonction écrit : |%02%|\n"));
 
 	int		a = -1;
-	int		b = 5;
+	int		b = -1;
 	char	c = 'a';
 	int		d = 2147483647;
 	int		e = -2147483648;
@@ -83,8 +83,8 @@ int	main(void)
 	// printf("system : %d\n", printf("%0.i, %0.d, %0.d, %0.d", i, j, k, l));
 	// printf("yours : %d\n", ft_printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
 	// printf("system : %d\n", printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-	printf("yours : %d\n", ft_printf("%*X", a, i));
-	printf("system : %d\n", printf("%*X", a, i));
+	printf("yours : %d\n", ft_printf("%*.*u", a, b, l));
+	printf("system : %d\n", printf("%*.*u", a, b, l));
 
 	// c and s
 	// printf("%d\n", printf("Syst printf writes : |%*c|\n", 2, 'e'));
@@ -164,10 +164,3 @@ int	main(void)
 	// free(flags);
 	return (0);
 }
-
-
-/*
-NOTES :
-si * = -5 -> flags->minus = 1
-
-*/

@@ -72,7 +72,7 @@ int	dapplyflags(va_list ap, t_flags *flags, int *count)
 	}
 	if (flags->prcsn > 0 && flags->mfw == 0)
 		flags->minus = 0;
-	if (flags->zero == 1 && flags->mfw > flags->prcsn && flags->period == 1)
+	if (flags->zero == 1 && flags->mfw > flags->prcsn && flags->prcsn >= 0 && flags->period == 1)
 		flags->zero = 0;
 	if (flags->minus == 1)
 	{
