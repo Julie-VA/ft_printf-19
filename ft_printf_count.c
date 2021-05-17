@@ -67,24 +67,24 @@ int	countuint(va_list ap, int *count, t_flags *flags)
 	return (len);
 }
 
-int	scount(char *s, int *count, t_flags *flags)
+void	scount(char *s, int *count, t_flags *flags)
 {
 	int	i;
 
 	i = 0;
 	if (!s)
 	{
-		if (flags->mfw > 0 && flags->prcsn == 0)
+		if (flags->prcsn == 0 && flags->period == 1)
 		{
 			flags->vals = "";
-			return (0);
+			return ;
 		}
 		else
 		{
 			flags->vals = "(null)";
 			*count += 6;
 			flags->notwrite = 0;
-			return (0);
+			return ;
 		}
 	}
 	while (s[i])
@@ -92,5 +92,4 @@ int	scount(char *s, int *count, t_flags *flags)
 	if (flags->notwrite == 0)
 		*count += i;
 	flags->vals = s;
-	return (i);
 }

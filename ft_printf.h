@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 16:29:26 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 11:59:44 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	ft_rev_int_tab(char *tab, int size);
 //counts
 int		countint(va_list ap, int *count, t_flags *flags);
 int		countuint(va_list ap, int *count, t_flags *flags);
-int		scount(char *s, int *count, t_flags *flags);
+void	scount(char *s, int *count, t_flags *flags);
 void	countnputnbrhex(va_list ap, int cap, int *count, t_flags *flags);
 void	countnputnbrlluhex(va_list ap, int *count, t_flags *flags);
 
