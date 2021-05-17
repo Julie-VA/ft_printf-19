@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 14:52:10 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/16 15:51:05 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 10:34:11 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	xapplyflags(va_list ap, t_flags *flags, int *count)
 	}
 	if (flags->prcsn > 0 && flags->mfw == 0)
 		flags->minus = 0;
-	if (flags->zero == 1 && flags->mfw > flags->prcsn && flags->period == 1)
+	if (flags->zero == 1 && flags->mfw > flags->prcsn && flags->prcsn >= 0 && flags->period == 1)
 		flags->zero = 0;
 	if (flags->minus == 1)
 	{
