@@ -52,6 +52,14 @@ static int	startwrite(va_list ap, t_flags *flags, int *count, int i)
 	return (++i);
 }
 
+void	setvars(int *i, int *count, int *prcnts, int *tormv)
+{
+	*i = 0;
+	*count = 0;
+	*prcnts = 0;
+	*tormv = 0;
+}
+
 int	writestr(const char *str, va_list ap)
 {
 	int		i;
@@ -60,10 +68,7 @@ int	writestr(const char *str, va_list ap)
 	int		prcnts;
 	int		tormv;
 
-	i = 0;
-	count = 0;
-	prcnts = 0;
-	tormv = 0;
+	setvars(&i, &count, &prcnts, &tormv);
 	while (str[i])
 	{
 		if (str[i] == '%')
@@ -71,6 +76,8 @@ int	writestr(const char *str, va_list ap)
 			i++;
 			prcnts++;
 			flags = setflags(str, &i, ap, &tormv);
+			if (!flags)
+				return (-1);
 			// printflags(flags);
 			if (charislegal(flags->ident) == 2)
 				i = startwrite(ap, flags, &count, i);

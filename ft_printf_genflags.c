@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:46:20 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/17 15:38:33 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 16:09:00 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv)
 
 	tormvcpy = *i;
 	flags = ft_lstnew();
+	if (!flags)
+		return (NULL);
 	resetflags(flags);
 	while (islegal(str, *i) == 1)
 	{
