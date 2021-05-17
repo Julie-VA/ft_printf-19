@@ -6,16 +6,16 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 11:51:03 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/05/17 11:47:58 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/05/17 15:42:24 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= ft_printf.c				\
 			ft_printf_cprcntflags.c	\
-			ft_printf_countp.c		\
-			ft_printf_count.c		\
-			ft_printf_countxX.c		\
-			ft_printf_dflags.c		\
+			ft_printf_pcount.c		\
+			ft_printf_intuscount.c	\
+			ft_printf_xXcount.c		\
+			ft_printf_intflags.c	\
 			ft_printf_intwrite.c	\
 			ft_printf_genflags.c	\
 			ft_printf_sflags.c		\
@@ -26,7 +26,7 @@ SRCS	= ft_printf.c				\
 			ft_printf_utils.c		\
 			ft_printf_cswrite.c		\
 			ft_printf_write.c		\
-			ft_printf_xflags.c		\
+			ft_printf_xXflags.c		\
 
 SRCG	= ft_printf.o				\
 			ft_printf_cprcntflags.o	\

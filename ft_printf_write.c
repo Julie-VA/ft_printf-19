@@ -33,7 +33,7 @@
 // 	printf("\n");
 // }
 
-static void	startwrite(va_list ap, t_flags *flags, int *count)
+static int	startwrite(va_list ap, t_flags *flags, int *count, int i)
 {
 	if (flags->ident == 'c')
 		cwrite(flags, ap, count);
@@ -49,6 +49,7 @@ static void	startwrite(va_list ap, t_flags *flags, int *count)
 		xwrite(flags, ap, count);
 	else if (flags->ident == 'p')
 		powrite(flags, ap, count);
+	return (++i);
 }
 
 int	writestr(const char *str, va_list ap)
@@ -72,20 +73,14 @@ int	writestr(const char *str, va_list ap)
 			flags = setflags(str, &i, ap, &tormv);
 			// printflags(flags);
 			if (charislegal(flags->ident) == 2)
-			{
-				startwrite(ap, flags, &count);
-				i++;
-			}
+				i = startwrite(ap, flags, &count, i);
 			// i--;
 			// while (str[i] != flags->ident)
 			// 	i++;
 			free(flags);
 		}
 		else
-		{
-			write(1, &str[i], 1);
-			i++;
-		}
+			write(1, &str[i++], 1);
 	}
 	// printf("i=%d", i);
 	// printf("count=%d", count);
