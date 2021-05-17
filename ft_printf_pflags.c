@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 09:57:40 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/16 15:18:48 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 15:16:47 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	papplyflags(va_list ap, t_flags *flags, int *count, int *check)
 
 	written = 0;
 	len = dgetlen(ap, flags, count);
+	if (flags->valp == 0 && flags->period == 1 && flags->prcsn == 0 && flags->mfw < 3)
+		return (1);
 	if (flags->period == 1 && flags->prcsn == 0 && flags->valp == 0)
 		flags->notwrite = 2;
 	if (flags->prcsn > 0 && flags->mfw == 0)
