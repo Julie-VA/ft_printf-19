@@ -6,13 +6,12 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:55:09 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 16:29:03 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 16:04:06 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	sgetlen(va_list ap, t_flags *flags, int *count)
 {

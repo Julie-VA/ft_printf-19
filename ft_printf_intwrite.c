@@ -12,27 +12,6 @@
 
 #include <stdlib.h>
 #include "ft_printf.h"
-#include <stdio.h>
-
-int	dgetlen(va_list ap, t_flags *flags, int *count)
-{
-	int	len;
-
-	len = *count;
-	if (flags->ident == 'c')
-		(*count)++;
-	else if (flags->ident == 'd' || flags->ident == 'i')
-		countint(ap, count, flags);
-	else if (flags->ident == 'u')
-		countuint(ap, count, flags);
-	else if (flags->ident == 'x')
-		countnputnbrhex(ap, 0, count, flags);
-	else if (flags->ident == 'X')
-		countnputnbrhex(ap, 1, count, flags);
-	else if (flags->ident == 'p')
-		countnputnbrlluhex(ap, count, flags);
-	return (*count - len);
-}
 
 static void	writeident(t_flags *flags)
 {
