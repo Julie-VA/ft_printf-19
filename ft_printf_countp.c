@@ -6,11 +6,12 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 15:34:01 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 12:15:23 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 12:48:05 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static void	lluconvnwrite(LLU nb, char *result, int *count, t_flags *flags)
 {
@@ -43,6 +44,7 @@ void	countnputnbrlluhex(va_list ap, int *count, t_flags *flags)
 
 	*count += 2;
 	nb = (LLU)(va_arg(ap, void *));
+	//if nb = 0 -> write 0x and return with count 2
 	flags->valp = (LLU)nb;
 	if (nb == 0)
 	{
