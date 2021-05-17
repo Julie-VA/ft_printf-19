@@ -11,7 +11,13 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
+static int	countintneg(int *count, int *valcpy)
+{
+	(*count)++;
+	(*valcpy) *= -1;
+	return (-1);
+}
 
 int	countint(va_list ap, int *count, t_flags *flags)
 {
@@ -24,11 +30,7 @@ int	countint(va_list ap, int *count, t_flags *flags)
 	len = *count;
 	valcpy = va_arg(ap, int);
 	if (valcpy < 0)
-	{
-		(*count)++;
-		valcpy *= -1;
-		sign = -1;
-	}
+		sign = countintneg(count, &valcpy);
 	if (valcpy == -2147483648)
 		val = 2147483648;
 	val = (unsigned int)valcpy;
