@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:51:59 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 16:29:52 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 16:46:55 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	capplyflags(va_list ap, t_flags *flags, int *count)
 {
 	int	written;
-	int len;
+	int	len;
 
 	written = 0;
 	len = 1;
@@ -43,10 +43,43 @@ int	capplyflags(va_list ap, t_flags *flags, int *count)
 	return (written);
 }
 
+static int	prcntflagsminus(t_flags *flags, int len, int *count)
+{
+	ft_putchar('%');
+	while (len < flags->mfw)
+	{
+		write(1, " ", 1);
+		len++;
+		(*count)++;
+	}
+	return (1);
+}
+
+static int	prcntflagsnormal(t_flags *flags, int len, int *count)
+{
+	if (flags->zero == 1)
+	{
+		while (len < flags->mfw)
+		{
+			write(1, "0", 1);
+			len++;
+			(*count)++;
+		}
+	}
+	while (len < flags->mfw)
+	{
+		write(1, " ", 1);
+		len++;
+		(*count)++;
+	}
+	ft_putchar('%');
+	return (1);
+}
+
 int	prcntapplyflags(t_flags *flags, int *count)
 {
 	int	written;
-	int len;
+	int	len;
 
 	written = 0;
 	len = 1;
@@ -55,37 +88,9 @@ int	prcntapplyflags(t_flags *flags, int *count)
 	if (flags->mfw > 0)
 	{
 		if (flags->minus == 1)
-		{
-			ft_putchar('%');
-			while (len < flags->mfw)
-			{
-				write(1, " ", 1);
-				len++;
-				(*count)++;
-			}
-			written = 1;
-		}
+			written = prcntflagsminus(flags, len, count);
 		else
-		{
-			if (flags->zero == 1)
-				while (len < flags->mfw)
-				{
-					write(1, "0", 1);
-					len++;
-					(*count)++;
-				}
-			while (len < flags->mfw)
-			{
-				write(1, " ", 1);
-				len++;
-				(*count)++;
-			}
-			if (written == 0)
-			{
-				ft_putchar('%');
-				written = 1;
-			}
-		}
+			written = prcntflagsnormal(flags, len, count);
 	}
 	return (written);
 }
