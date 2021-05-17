@@ -27,9 +27,9 @@ static void	writeident(t_flags *flags)
 		ft_putstr(flags->resultp);
 }
 
-void	dwrite(t_flags *flags, va_list ap, int *count)
+void	intwrite(t_flags *flags, va_list ap, int *count)
 {
-	if (dapplyflags(ap, flags, count) == 0 && flags->notwrite < 2)
+	if (intapplyflags(ap, flags, count) == 0 && flags->notwrite < 2)
 		writeident(flags);
 }
 

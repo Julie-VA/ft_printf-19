@@ -42,7 +42,7 @@ static int	startwrite(va_list ap, t_flags *flags, int *count, int i)
 	else if (flags->ident == 's')
 		swrite(flags, ap, count);
 	else if (flags->ident == 'd' || flags->ident == 'i')
-		dwrite(flags, ap, count);
+		intwrite(flags, ap, count);
 	else if (flags->ident == 'u')
 		uwrite(flags, ap, count);
 	else if (flags->ident == 'x' || flags->ident == 'X')
