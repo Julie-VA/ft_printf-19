@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:46:20 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/17 11:46:56 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 12:30:46 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv)
 		flags->minus = 1;
 		flags->mfw = -flags->mfw;
 	}
+	if (flags->ident == 0)
+		(*tormv)++;
 	*tormv += *i - tormvcpy;
 	return (flags);
 }

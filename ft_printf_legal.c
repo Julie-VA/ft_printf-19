@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 11:39:08 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/14 15:55:27 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 12:33:12 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@ int	islegal(const char *s, int i)
 	if (s[i] == 'd' || s[i] == 'i' || s[i] == 'u' || s[i] == 'x' || s[i] == 'X')
 		return (2);
 	if (s[i] == 'c' || s[i] == 's' || s[i] == 'p' || s[i] == '%')
+		return (2);
+	return (0);
+}
+
+int	charislegal(char c)
+{
+	if ((c >= '0' && c <= '9') || c == '-' || c == '.' || c == '*')
+		return (1);
+	if (c == 'd' || c == 'i' || c == 'u' || c == 'x' || c == 'X')
+		return (2);
+	if (c == 'c' || c == 's' || c == 'p' || c == '%')
 		return (2);
 	return (0);
 }

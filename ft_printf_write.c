@@ -71,11 +71,14 @@ int	writestr(const char *str, va_list ap)
 			prcnts++;
 			flags = setflags(str, &i, ap, &tormv);
 			// printflags(flags);
-			startwrite(ap, flags, &count);
+			if (charislegal(flags->ident) == 2)
+			{
+				startwrite(ap, flags, &count);
+				i++;
+			}
 			// i--;
 			// while (str[i] != flags->ident)
 			// 	i++;
-			i++;
 			free(flags);
 		}
 		else

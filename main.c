@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:20:31 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/17 11:55:47 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 12:30:22 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,22 @@ int	main(void)
 	// printf("%d\n", printf("|%-.2u|\n", 0));
 	// printf("%d\n", ft_printf("Ma fonction écrit : |%02%|\n"));
 	// printf("%d\n", printf("La fonction écrit : |%02%|\n"));
+	printf("yours : %d\n", ft_printf("%"));
+	// printf("system : %d\n", printf("%"));
 
-	int		a = 2;
-	int		b = -1;
-	char	c = 'a';
-	int		d = 2147483647;
-	int		e = -2147483648;
+	// int		a = 2;
+	// int		b = -1;
+	// char	c = 'a';
+	// int		d = 2147483647;
+	// int		e = -2147483648;
 	// int		f = 42;
 	// int		g = 25;
 	// int		h = 4200;
-	int		i = 8;
-	int		j = -12;
-	int		k = 123456789;
-	int		l = 0;
-	int		m = -12345678;
+	// int		i = 8;
+	// int		j = -12;
+	// int		k = 123456789;
+	// int		l = 0;
+	// int		m = -12345678;
 	// char	*n = "abcdefghijklmnop";
 	// char	*o = "-a";
 	// char	*p = "-12";
@@ -85,8 +87,8 @@ int	main(void)
 	// printf("system : %d\n", printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
 	// printf("yours : %d\n", ft_printf("%0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
 	// printf("system : %d\n", printf("%0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-	printf("yours : %d\n", ft_printf("%-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
-	printf("system : %d\n", printf("%-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
+	// printf("yours : %d\n", ft_printf("%-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
+	// printf("system : %d\n", printf("%-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
 
 	// c and s
 	// printf("%d\n", printf("Syst printf writes : |%*c|\n", 2, 'e'));

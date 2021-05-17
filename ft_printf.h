@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/17 11:59:44 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/17 12:33:33 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int		prcntapplyflags(t_flags *flags, int *count);
 //legal
 int		checklegal(const char *str, t_flags *flags, int i);
 int		islegal(const char *s, int i);
+int		charislegal(char c);
 int		writenotlegal(const char *str, int i, int *count);
 
 //write
