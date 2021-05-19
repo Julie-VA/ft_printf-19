@@ -6,13 +6,11 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:15:43 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/17 11:46:51 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/19 09:34:27 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "ft_printf.h"
-#include <stdio.h>
 
 static void	smfw(int len, int *count, t_flags *flags)
 {
@@ -56,6 +54,29 @@ static int	sprcsn(int len, t_flags *flags, int *count)
 	return (written);
 }
 
+static int	sflagsminus(t_flags *flags, int len, int *count, int written)
+{
+	if (flags->prcsn > 0)
+	{
+		sprcsn(len, flags, count);
+		written = 1;
+	}
+	if (written == 0)
+		ft_putstr(flags->vals);
+	written = 1;
+	smfw(len, count, flags);
+	return (written);
+}
+
+static int	sflagsnormal(t_flags *flags, int len, int *count, int written)
+{
+	if (flags->mfw > 0 && flags->minus == 0)
+		smfw(len, count, flags);
+	if (flags->prcsn > 0 && flags->notwrite == 0 && written == 0)
+		written = sprcsn(len, flags, count);
+	return (written);
+}
+
 int	sapplyflags(va_list ap, t_flags *flags, int *count)
 {
 	int	written;
@@ -66,23 +87,8 @@ int	sapplyflags(va_list ap, t_flags *flags, int *count)
 	if (flags->prcsn <= 0 && flags->notwrite == 1)
 		flags->minus = 0;
 	if (flags->minus == 1)
-	{
-		if (flags->prcsn > 0)
-		{
-			sprcsn(len, flags, count);
-			written = 1;
-		}
-		if (written == 0)
-			ft_putstr(flags->vals);
-		written = 1;
-		smfw(len, count, flags);
-	}
+		written = sflagsminus(flags, len, count, written);
 	if (flags->prcsn >= 0 || flags->mfw > 0)
-	{
-		if (flags->mfw > 0 && flags->minus == 0)
-			smfw(len, count, flags);
-		if (flags->prcsn > 0 && flags->notwrite == 0 && written == 0)
-			written = sprcsn(len, flags, count);
-	}
+		written = sflagsnormal(flags, len, count, written);
 	return (written);
 }

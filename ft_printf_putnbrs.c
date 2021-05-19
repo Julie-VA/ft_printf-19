@@ -12,15 +12,18 @@
 
 #include "ft_printf.h"
 
+static void	ft_putnbrneg(int written)
+{
+	if (written == 2)
+		write(1, "2147483648", 10);
+	else
+		write(1, "-2147483648", 11);
+}
+
 void	ft_putnbr(int nb, int written)
 {
 	if (nb == -2147483648)
-	{
-		if (written == 2)
-			write(1, "2147483648", 10);
-		else
-			write(1, "-2147483648", 11);
-	}
+		ft_putnbrneg(written);
 	else
 	{
 		if (nb < 0)
@@ -31,9 +34,7 @@ void	ft_putnbr(int nb, int written)
 			ft_putnbr(nb, written);
 		}
 		else if (nb <= 9)
-		{
 			ft_putchar(nb + '0');
-		}
 		else
 		{
 			ft_putnbr(nb / 10, written);
@@ -45,9 +46,7 @@ void	ft_putnbr(int nb, int written)
 void	ft_uputnbr(unsigned int nb, int written)
 {
 	if (nb <= 9)
-	{
 		ft_putchar(nb + '0');
-	}
 	else
 	{
 		ft_putnbr(nb / 10, written);

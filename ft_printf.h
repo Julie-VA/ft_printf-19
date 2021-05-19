@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/19 09:23:03 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/19 09:53:04 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv);
 void	resetflags(t_flags *flags);
 t_flags	*set_sflags(const char *str, int *i, va_list ap, int *tormv);
 int		sapplyflags(va_list ap, t_flags *flags, int *count);
-int		uapplyflags(va_list ap, t_flags *flags, int *count);
-int		xapplyflags(va_list ap, t_flags *flags, int *count);
 int		capplyflags(va_list ap, t_flags *flags, int *count);
 int		prcntapplyflags(t_flags *flags, int *count);
 
@@ -58,8 +56,6 @@ int		writestr(const char *str, va_list ap);
 void	swrite(t_flags *flags, va_list ap, int *count);
 int		sgetlen(va_list ap, t_flags *flags, int *count);
 int		dgetlen(va_list ap, t_flags *flags, int *count);
-void	uwrite(t_flags *flags, va_list ap, int *count);
-void	xwrite(t_flags *flags, va_list ap, int *count);
 void	cwrite(t_flags *flags, va_list ap, int *count);
 void	prcntwrite(t_flags *flags, int *count);
 
@@ -96,5 +92,19 @@ void	powrite(t_flags *flags, va_list ap, int *count);
 int		pprintzero(int len, int *count);
 int		pprcsn(int len, t_flags *flags, int *count);
 void	pmfw(int len, int *count, t_flags *flags);
+
+//u
+int		uapplyflags(va_list ap, t_flags *flags, int *count);
+void	uwrite(t_flags *flags, va_list ap, int *count);
+int		uprintzero(int len, int *count);
+int		uprcsn(int len, t_flags *flags, int *count);
+void	umfw(int len, int *count, t_flags *flags);
+
+//x
+int		xapplyflags(va_list ap, t_flags *flags, int *count);
+void	xwrite(t_flags *flags, va_list ap, int *count);
+int		xprintzero(int len, int *count);
+int		xprcsn(int len, t_flags *flags, int *count);
+void	xmfw(int len, int *count, t_flags *flags);
 
 #endif
