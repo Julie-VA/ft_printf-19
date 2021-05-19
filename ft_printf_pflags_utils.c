@@ -6,11 +6,10 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 09:21:11 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/19 09:23:19 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/19 09:55:58 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "ft_printf.h"
 
 int	pprintzero(int len, int *count)

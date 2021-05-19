@@ -6,13 +6,11 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:51:59 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/17 16:46:55 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/19 09:57:13 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	capplyflags(va_list ap, t_flags *flags, int *count)
 {

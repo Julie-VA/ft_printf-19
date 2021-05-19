@@ -6,11 +6,10 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 09:57:40 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/19 09:21:27 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/19 09:56:05 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "ft_printf.h"
 
 static int	pflagscorner(t_flags *flags)
