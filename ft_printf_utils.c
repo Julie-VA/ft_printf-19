@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 14:21:37 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/17 16:04:34 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/19 09:26:55 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,5 @@ t_flags	*ft_lstnew(void)
 	new = (t_flags *)malloc(sizeof(t_flags));
 	if (!new)
 		return (NULL);
-	new->minus = 0;
-	new->zero = 0;
-	new->period = 0;
-	new->mfw = 0;
-	new->ident = 0;
 	return (new);
 }

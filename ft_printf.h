@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/17 17:38:10 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/19 09:23:03 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ t_flags	*set_sflags(const char *str, int *i, va_list ap, int *tormv);
 int		sapplyflags(va_list ap, t_flags *flags, int *count);
 int		uapplyflags(va_list ap, t_flags *flags, int *count);
 int		xapplyflags(va_list ap, t_flags *flags, int *count);
-int		papplyflags(va_list ap, t_flags *flags, int *count, int *check);
 int		capplyflags(va_list ap, t_flags *flags, int *count);
 int		prcntapplyflags(t_flags *flags, int *count);
 
@@ -61,7 +60,6 @@ int		sgetlen(va_list ap, t_flags *flags, int *count);
 int		dgetlen(va_list ap, t_flags *flags, int *count);
 void	uwrite(t_flags *flags, va_list ap, int *count);
 void	xwrite(t_flags *flags, va_list ap, int *count);
-void	powrite(t_flags *flags, va_list ap, int *count);
 void	cwrite(t_flags *flags, va_list ap, int *count);
 void	prcntwrite(t_flags *flags, int *count);
 
@@ -91,5 +89,12 @@ int		intprcsn(int len, t_flags *flags, int *count);
 void	intmfw(int len, int *count, t_flags *flags);
 void	ft_putnbr(int nb, int written);
 void	ft_uputnbr(unsigned int nb, int written);
+
+//p
+int		papplyflags(va_list ap, t_flags *flags, int *count, int *check);
+void	powrite(t_flags *flags, va_list ap, int *count);
+int		pprintzero(int len, int *count);
+int		pprcsn(int len, t_flags *flags, int *count);
+void	pmfw(int len, int *count, t_flags *flags);
 
 #endif
