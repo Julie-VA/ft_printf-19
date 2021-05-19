@@ -6,15 +6,15 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/19 09:53:04 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/19 10:12:36 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include <stdarg.h>
-#include <unistd.h>
+# include <stdarg.h>
+# include <unistd.h>
 
 # define LLU unsigned long long int
 
@@ -36,71 +36,94 @@ typedef struct s_flags
 	int				notwrite;
 }	t_flags;
 
-int		ft_printf(const char *, ...);
+int		ft_printf(const char *str, ...);
 
-//flags
+/*
+** Flags
+*/
 t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv);
 void	resetflags(t_flags *flags);
 t_flags	*set_sflags(const char *str, int *i, va_list ap, int *tormv);
-int		sapplyflags(va_list ap, t_flags *flags, int *count);
-int		capplyflags(va_list ap, t_flags *flags, int *count);
-int		prcntapplyflags(t_flags *flags, int *count);
 
-
-//legal
+/*
+** Legal
+*/
 int		islegal(const char *s, int i);
 int		charislegal(char c);
 
-//write
+/*
+** Write and len
+*/
 int		writestr(const char *str, va_list ap);
-void	swrite(t_flags *flags, va_list ap, int *count);
 int		sgetlen(va_list ap, t_flags *flags, int *count);
 int		dgetlen(va_list ap, t_flags *flags, int *count);
-void	cwrite(t_flags *flags, va_list ap, int *count);
-void	prcntwrite(t_flags *flags, int *count);
 
-//utils
+/*
+** Utils etc
+*/
 t_flags	*ft_lstnew(void);
 int		ft_strlen(const char *s);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putstrp(char *str);
-
-//xX
+void	ft_putnbr(int nb, int written);
+void	ft_uputnbr(unsigned int nb, int written);
 char	convhex(int mod, int cap);
 void	ft_rev_int_tab(char *tab, int size);
 
-//counts
+/*
+** Count
+*/
 int		countint(va_list ap, int *count, t_flags *flags);
 int		countuint(va_list ap, int *count, t_flags *flags);
 void	scount(char *s, int *count, t_flags *flags);
 void	countnputnbrhex(va_list ap, int cap, int *count, t_flags *flags);
 void	countnputnbrlluhex(va_list ap, int *count, t_flags *flags);
 
-//int
+/*
+** Cprcnt
+*/
+int		capplyflags(va_list ap, t_flags *flags, int *count);
+void	cwrite(t_flags *flags, va_list ap, int *count);
+int		prcntapplyflags(t_flags *flags, int *count);
+void	prcntwrite(t_flags *flags, int *count);
+
+/*
+** S
+*/
+int		sapplyflags(va_list ap, t_flags *flags, int *count);
+void	swrite(t_flags *flags, va_list ap, int *count);
+
+/*
+** Int
+*/
 int		intapplyflags(va_list ap, t_flags *flags, int *count);
 void	intwrite(t_flags *flags, va_list ap, int *count);
 int		intprintzero(int len, int *count);
 int		intprcsn(int len, t_flags *flags, int *count);
 void	intmfw(int len, int *count, t_flags *flags);
-void	ft_putnbr(int nb, int written);
-void	ft_uputnbr(unsigned int nb, int written);
 
-//p
+/*
+** P
+*/
 int		papplyflags(va_list ap, t_flags *flags, int *count, int *check);
 void	powrite(t_flags *flags, va_list ap, int *count);
 int		pprintzero(int len, int *count);
 int		pprcsn(int len, t_flags *flags, int *count);
 void	pmfw(int len, int *count, t_flags *flags);
 
-//u
+/*
+** U
+*/
 int		uapplyflags(va_list ap, t_flags *flags, int *count);
 void	uwrite(t_flags *flags, va_list ap, int *count);
 int		uprintzero(int len, int *count);
 int		uprcsn(int len, t_flags *flags, int *count);
 void	umfw(int len, int *count, t_flags *flags);
 
-//x
+/*
+** X
+*/
 int		xapplyflags(va_list ap, t_flags *flags, int *count);
 void	xwrite(t_flags *flags, va_list ap, int *count);
 int		xprintzero(int len, int *count);
