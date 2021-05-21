@@ -6,11 +6,20 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:51:59 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/21 13:23:21 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/21 13:38:15 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	writechar(va_list ap, t_flags *flags)
+{
+	if (flags->ident == 'c')
+		ft_putchar(va_arg(ap, int));
+	else
+		ft_putchar(flags->ident);
+	return (1);
+}
 
 int	capplyflags(va_list ap, t_flags *flags, int *count)
 {
@@ -22,13 +31,7 @@ int	capplyflags(va_list ap, t_flags *flags, int *count)
 	if (flags->mfw > 0)
 	{
 		if (flags->minus == 1)
-		{
-			if (flags->ident == 'c')
-				ft_putchar(va_arg(ap, int));
-			else
-				ft_putchar(flags->ident);
-			written = 1;
-		}
+			written = writechar(ap, flags);
 		while (len < flags->mfw)
 		{
 			write(1, " ", 1);
@@ -36,13 +39,7 @@ int	capplyflags(va_list ap, t_flags *flags, int *count)
 			(*count)++;
 		}
 		if (written == 0)
-		{
-			if (flags->ident == 'c')
-				ft_putchar(va_arg(ap, int));
-			else
-				ft_putchar(flags->ident);
-			written = 1;
-		}
+			written = writechar(ap, flags);
 	}
 	return (written);
 }

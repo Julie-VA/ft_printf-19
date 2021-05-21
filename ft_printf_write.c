@@ -60,10 +60,37 @@ void	setvars(int *i, int *count, int *prcnts, int *tormv)
 	*tormv = 0;
 }
 
+static int	writestrhelper(const char *str, int *i, int *count, va_list ap)
+{
+	t_flags	*flags;
+	int		tormv;
+
+	tormv = 0;
+	flags = setflags(str, i, ap, &tormv);
+	if (!flags)
+		return (-1);
+	if (flags->ident == 0)
+		count += 2;
+	else
+	{
+		if (charislegal(flags->ident) == 2)
+			*i = startwrite(ap, flags, count, *i);
+		else if (charislegal(flags->ident) != 3)
+			*i += cwrite(flags, ap, count);
+		else
+		{
+			(*i)++;
+			while (islegal(str, *i) == 1)
+				(*i)++;
+		}
+	}
+	free(flags);
+	return (tormv);
+}
+
 int	writestr(const char *str, va_list ap)
 {
 	int		i;
-	t_flags	*flags;
 	int		count;
 	int		prcnts;
 	int		tormv;
@@ -75,29 +102,7 @@ int	writestr(const char *str, va_list ap)
 		{
 			i++;
 			prcnts++;
-			flags = setflags(str, &i, ap, &tormv);
-			if (!flags)
-				return (-1);
-			if (flags->ident == 0)
-				count += 2;
-			else
-			{
-				// printflags(flags);
-				if (charislegal(flags->ident) == 2)
-					i = startwrite(ap, flags, &count, i);
-				else if (charislegal(flags->ident) != 3)
-				{
-					cwrite(flags, ap, &count);
-					i++;
-				}
-				else
-				{
-					i++;
-					while (islegal(str, i) == 1)
-						i++;
-				}
-			}
-			free(flags);
+			tormv += writestrhelper(str, &i, &count, ap);
 		}
 		else
 			write(1, &str[i++], 1);

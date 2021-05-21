@@ -6,12 +6,11 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:46:20 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/21 13:16:59 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/21 14:00:42 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 void	resetflags(t_flags *flags)
 {

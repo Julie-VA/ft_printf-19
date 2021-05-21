@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:07 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/19 10:12:36 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/21 14:13:50 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	countnputnbrlluhex(va_list ap, int *count, t_flags *flags);
 ** Cprcnt
 */
 int		capplyflags(va_list ap, t_flags *flags, int *count);
-void	cwrite(t_flags *flags, va_list ap, int *count);
+int		cwrite(t_flags *flags, va_list ap, int *count);
 int		prcntapplyflags(t_flags *flags, int *count);
 void	prcntwrite(t_flags *flags, int *count);
 
