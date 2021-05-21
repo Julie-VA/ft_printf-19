@@ -6,7 +6,7 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 11:51:03 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/05/19 10:16:52 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/05/21 14:34:48 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	= ft_printf.c					\
 			ft_printf_pflags.c			\
 			ft_printf_pflags_utils.c	\
 			ft_printf_putnbrs.c			\
+			ft_printf_resetflags.c		\
 			ft_printf_sflags.c			\
 			ft_printf_uflags.c			\
 			ft_printf_uflags_utils.c	\

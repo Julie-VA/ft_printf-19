@@ -6,27 +6,11 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:46:20 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/21 14:26:38 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/21 14:34:02 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	resetflags(t_flags *flags)
-{
-	flags->minus = 0;
-	flags->zero = 0;
-	flags->period = 0;
-	flags->mfw = 0;
-	flags->prcsn = 0;
-	flags->star = 0;
-	flags->ident = 0;
-	flags->valdi = 0;
-	flags->valuxX = 0;
-	flags->valp = 0;
-	flags->vals = NULL;
-	flags->notwrite = 0;
-}
 
 static int	setprecision(const char *str, int *i, t_flags *flags)
 {
@@ -64,6 +48,17 @@ static int	setmfw(const char *str, int *i)
 		*i += 1;
 	}
 	return (mfw);
+}
+
+static void	flagscorners(t_flags *flags, int *tormv)
+{
+	if (flags->mfw < 0)
+	{
+		flags->minus = 1;
+		flags->mfw = -flags->mfw;
+	}
+	if (flags->ident == 0)
+		(*tormv)++;
 }
 
 static void	setflagshelper(const char *str, int *i, va_list ap, t_flags *flags)
@@ -115,13 +110,7 @@ t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv)
 	if ((flags->ident == 'h' && str[(*i) + 1] == 'h')
 		|| (flags->ident == 'l' && str[(*i) + 1] == 'l'))
 		(*i)++;
-	if (flags->mfw < 0)
-	{
-		flags->minus = 1;
-		flags->mfw = -flags->mfw;
-	}
-	if (flags->ident == 0)
-		(*tormv)++;
+	flagscorners(flags, tormv);
 	*tormv += *i - tormvcpy;
 	return (flags);
 }
