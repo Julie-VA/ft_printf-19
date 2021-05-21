@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:51:59 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/21 13:38:15 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/21 14:50:25 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,25 @@ static int	writechar(va_list ap, t_flags *flags)
 	return (1);
 }
 
+static int	printzerononvalid(t_flags *flags, int *count)
+{
+	int	i;
+
+	i = 0;
+	if (flags->minus == 0)
+	{
+		while (i < flags->mfw - 1)
+		{
+			write(1, "0", 1);
+			i++;
+			(*count)++;
+		}
+		ft_putchar(flags->ident);
+		return (1);
+	}
+	return (0);
+}
+
 int	capplyflags(va_list ap, t_flags *flags, int *count)
 {
 	int	written;
@@ -30,9 +49,11 @@ int	capplyflags(va_list ap, t_flags *flags, int *count)
 	len = 1;
 	if (flags->mfw > 0)
 	{
-		if (flags->minus == 1)
-			written = writechar(ap, flags);
-		while (len < flags->mfw)
+		if (flags->zero == 1 && (flags->ident != 2 || flags->ident != 3))
+			written = printzerononvalid(flags, count);
+		if (flags->minus == 1 && written == 0)
+			written = writechar(ap, flags) + 1;
+		while (len < flags->mfw && written != 1)
 		{
 			write(1, " ", 1);
 			len++;
@@ -42,18 +63,6 @@ int	capplyflags(va_list ap, t_flags *flags, int *count)
 			written = writechar(ap, flags);
 	}
 	return (written);
-}
-
-static int	prcntflagsminus(t_flags *flags, int len, int *count)
-{
-	ft_putchar('%');
-	while (len < flags->mfw)
-	{
-		write(1, " ", 1);
-		len++;
-		(*count)++;
-	}
-	return (1);
 }
 
 static int	prcntflagsnormal(t_flags *flags, int len, int *count)
@@ -89,7 +98,16 @@ int	prcntapplyflags(t_flags *flags, int *count)
 	if (flags->mfw > 0)
 	{
 		if (flags->minus == 1)
-			written = prcntflagsminus(flags, len, count);
+		{
+			ft_putchar('%');
+			while (len < flags->mfw)
+			{
+				write(1, " ", 1);
+				len++;
+				(*count)++;
+			}
+			written = 1;
+		}
 		else
 			written = prcntflagsnormal(flags, len, count);
 	}

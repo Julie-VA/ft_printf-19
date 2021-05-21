@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:20:31 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/21 14:25:20 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/21 14:48:43 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int	main(void)
 	// printf("%d\n", printf("La fonction écrit : |%02%|\n"));
 	// printf("yours : %d\n", ft_printf("%.p", NULL));
 	// printf("system : %d\n", printf("%.p", NULL));
-	printf("yours : %d\n", ft_printf("hello, %hhbonjour\n"));
-	printf("system : %d\n", printf("hello, %hhbonjour\n"));
+	printf("yours : %d\n", ft_printf("hello, %04wbonjour\n"));
+	printf("system : %d\n", printf("hello, %04wbonjour\n"));
 	// printf("yours : %d\n", ft_printf("%5"));
 	// printf("system : %d\n", printf("%5"));
 
