@@ -6,11 +6,10 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:46:20 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/21 13:07:16 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/21 13:16:59 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "ft_printf.h"
 #include <stdio.h>
 
@@ -97,29 +96,6 @@ static void	setflagshelper(const char *str, int *i, va_list ap, t_flags *flags)
 	}
 }
 
-static t_flags	*setflagsnotvalid(const char *str, int *i, va_list ap, t_flags *flags)
-{
-	if (flags)
-		free(flags);
-	flags = ft_lstnew();
-	if (!flags)
-		return (NULL);
-	resetflags(flags);
-	while (islegal(str, *i) == 1)
-	{
-		setflagshelper(str, i, ap, flags);
-		if (islegal(str, *i) == 1)
-			*i += 1;
-	}
-	flags->ident = str[*i];
-	if (flags->mfw < 0)
-	{
-		flags->minus = 1;
-		flags->mfw = -flags->mfw;
-	}
-	return (flags);
-}
-
 t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv)
 {
 	t_flags	*flags;
@@ -137,11 +113,6 @@ t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv)
 			*i += 1;
 	}
 	flags->ident = str[*i];
-	if (charislegal(flags->ident) != 2 && islegal(str, *i) == 1)
-	{
-		(*i)++;
-		setflagsnotvalid(str, i, ap, flags);
-	}
 	if (flags->mfw < 0)
 	{
 		flags->minus = 1;
