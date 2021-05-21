@@ -81,6 +81,11 @@ int	writestr(const char *str, va_list ap)
 			// printflags(flags);
 			if (charislegal(flags->ident) == 2)
 				i = startwrite(ap, flags, &count, i);
+			else if (flags->ident != 0)
+			{
+				cwrite(flags, ap, &count);
+				i++;
+			}
 			// i--;
 			// while (str[i] != flags->ident)
 			// 	i++;

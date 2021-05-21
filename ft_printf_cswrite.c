@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 09:55:09 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/19 09:55:34 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/21 10:44:30 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,13 @@ void	swrite(t_flags *flags, va_list ap, int *count)
 void	cwrite(t_flags *flags, va_list ap, int *count)
 {
 	if (capplyflags(ap, flags, count) == 0)
-		ft_putchar(va_arg(ap, int));
+	{
+		if (flags->ident == 'c')
+			ft_putchar(va_arg(ap, int));
+		else
+			ft_putchar(flags->ident);
+	}
+		// ft_putchar(va_arg(ap, int));
 	(*count)++;
 }
 
