@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:46:20 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/21 12:26:04 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/21 13:07:16 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,13 +137,10 @@ t_flags	*setflags(const char *str, int *i, va_list ap, int *tormv)
 			*i += 1;
 	}
 	flags->ident = str[*i];
-	if (charislegal(flags->ident) != 2)
+	if (charislegal(flags->ident) != 2 && islegal(str, *i) == 1)
 	{
-		// (*i)++;
-		if (islegal(str, *i) == 1)
-			setflagsnotvalid(str, i, ap, flags);
-		else
-			flags->ident = str[*i];
+		(*i)++;
+		setflagsnotvalid(str, i, ap, flags);
 	}
 	if (flags->mfw < 0)
 	{
