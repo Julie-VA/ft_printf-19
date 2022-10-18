@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:51:59 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/21 14:50:25 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:51:05 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	capplyflags(va_list ap, t_flags *flags, int *count)
 	len = 1;
 	if (flags->mfw > 0)
 	{
-		if (flags->zero == 1 && (flags->ident != 2 || flags->ident != 3))
+		if (flags->zero == 1 && (flags->ident != 2 && flags->ident != 3))
 			written = printzerononvalid(flags, count);
 		if (flags->minus == 1 && written == 0)
 			written = writechar(ap, flags) + 1;
